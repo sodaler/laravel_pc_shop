@@ -12,35 +12,38 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
      * Bootstrap any application services.
      *
      * @return void
      */
-    public function boot()
+    public function boot(): void
     {
-        Model::preventLazyLoading(!app()->isProduction());
-        Model::preventSilentlyDiscardingAttributes(!app()->isProduction());
+//        Model::preventLazyLoading(!app()->isProduction());
+//        Model::preventSilentlyDiscardingAttributes(!app()->isProduction());
 
-        DB::whenQueryingForLongerThan(500, function (Connection $connection) {
-            logger()->channel('telegram')->debug('whenQueryingForLongerThan:' . $connection->query()->toSql());
-        });
+        Model::shouldBeStrict(!app()->isProduction());
 
-        $kernel = app(Kernel::class);
+        if (app()->isProduction()) {
+            DB::listen(function ($query) {
+                if ($query->time > 100) {
+                    logger()
+                        ->channel('telegram')
+                        ->debug(
+                            'query longer than 1s:' . $query->sql, $query->sql
+                        );
+                }
+            });
 
-        $kernel->whenRequestLifecycleIsLongerThan(
-            CarbonInterval::second(4),
-            fn() => logger()->channel('telegram')->debug('whenRequestLifecycleIsLongerThan:' . request()->url())
-        );
+//            DB::whenQueryingForLongerThan(500, function (Connection $connection) {
+//                logger()->channel('telegram')->debug('whenQueryingForLongerThan:' . $connection->query()->toSql());
+//            });
+
+
+            app(Kernel::class)->whenRequestLifecycleIsLongerThan(
+                CarbonInterval::seconds(4),
+                fn() => logger()->channel('telegram')->debug('whenRequestLifecycleIsLongerThan:' . request()->url())
+            );
+        }
     }
 
 }
