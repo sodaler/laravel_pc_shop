@@ -32,6 +32,7 @@ class RefreshCommand extends Command
             return self::FAILURE;
         }
 
+        Storage::deleteDirectory('images/brands');
         Storage::deleteDirectory('images/products');
 
         $this->call('migrate:fresh', [
