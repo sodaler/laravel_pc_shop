@@ -23,7 +23,7 @@ class ForgotPasswordController extends Controller
             $request->only('email')
         );
 
-        if ($status === Password::RESET_LINK_SENT) {
+        if ($status === Password::PASSWORD_RESET) {
             flash()->info(__($status));
             return back();
         }

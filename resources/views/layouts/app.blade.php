@@ -14,7 +14,6 @@
             {{ $message->message() }}
         </div>
     @endif
-
     @yield('content')
 </body>
 </html>
