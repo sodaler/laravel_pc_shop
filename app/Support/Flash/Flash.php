@@ -2,7 +2,7 @@
 
 namespace App\Support\Flash;
 
-use Illuminate\Support\Facades\Session;
+use Illuminate\Contracts\Session\Session;
 
 final class Flash
 {

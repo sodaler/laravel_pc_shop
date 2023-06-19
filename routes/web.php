@@ -7,6 +7,7 @@ use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -94,7 +95,6 @@ Route::controller(ResetPasswordController::class)->group(function () {
         ->middleware('guest')
         ->name('password-reset.handle');
 });
-
 
 Route::get('/', HomeController::class)->name('home');
 
