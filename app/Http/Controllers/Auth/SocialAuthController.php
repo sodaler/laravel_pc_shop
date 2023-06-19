@@ -30,10 +30,10 @@ class SocialAuthController extends Controller
         $socialUser = Socialite::driver($driver)->user();
 
         $user = User::query()->updateOrCreate([
-            $driver . '_id' => $socialUser->id,
+            $driver . '_id' => $socialUser->getId(),
         ], [
-            'name' => $socialUser->name ?? $socialUser->email,
-            'email' => $socialUser->email,
+            'name' => $socialUser->getName() ?? $socialUser->getEmail(),
+            'email' => $socialUser->getEmail(),
             'password' => bcrypt(str()->random(20))
         ]);
 
