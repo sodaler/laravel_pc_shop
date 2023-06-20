@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ThumbnailController;
 use Illuminate\Support\Facades\Route;
@@ -20,38 +21,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::controller(AuthController::class)->group(function () {
-//    Route::get('/login', 'index')->name('login');
-//    Route::post('/login', 'signIn')->middleware('throttle:auth')->name('signIn');
-//
-//    Route::get('/sign-up', 'signUp')->name('signUp');
-//    Route::post('/sign-up', 'store')->middleware('throttle:auth')->name('store');
-
-//    Route::delete('/logout', 'logout')->name('logout');
-//
-//    Route::get('/forgot-password', 'forgot')
-//        ->middleware('guest')
-//        ->name('password.request');
-//
-//    Route::post('/forgot-password', 'forgotPassword')
-//        ->middleware('guest')
-//        ->name('password.email');
-//
-//    Route::get('/reset-password/{token}', 'reset')
-//        ->middleware('guest')
-//        ->name('password.reset');
-//
-//    Route::post('/reset-password', 'resetPassword')
-//        ->middleware('guest')
-//        ->name('password.update');
-//
-//    Route::get('/auth/socialite/github', 'github')
-//        ->name('socialite.github');
-//
-//    Route::get('/auth/socialite/github/callback', 'githubCallback')
-//        ->name('socialite.github.callback');
-});
 
 Route::controller(SignInController::class)->group(function () {
     Route::get('/login', 'page')->name('login');
@@ -94,6 +63,10 @@ Route::controller(ResetPasswordController::class)->group(function () {
     Route::post('/reset-password', 'handle')
         ->middleware('guest')
         ->name('password-reset.handle');
+});
+
+Route::controller(CatalogController::class)->group(function () {
+    Route::get('/catalog/{category:slug?}', CatalogController::class)->name('catalog');
 });
 
 Route::get('/', HomeController::class)->name('home');
