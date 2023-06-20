@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Support\Casts\PriceCast;
 use App\Traits\Models\HasSlug;
 use Illuminate\Contracts\Database\Query\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -20,6 +21,10 @@ class Product extends Model
         'brand_id',
         'price',
         'thumbnail',
+    ];
+
+    protected $casts = [
+      'price' => PriceCast::class
     ];
 
     protected function thumbnailDir(): string
