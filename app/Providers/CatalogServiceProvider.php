@@ -20,5 +20,6 @@ class CatalogServiceProvider extends ServiceProvider
             new PriceFilter(),
             new BrandFilter()
         ]);
+
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Facades\Sorter;
 use App\Support\Casts\PriceCast;
 use App\Traits\Models\HasSlug;
 use Illuminate\Contracts\Database\Query\Builder;
@@ -53,6 +54,17 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function properties(): BelongsToMany
+    {
+        return $this->belongsToMany(Property::class)
+            ->withPivot('value');
+    }
+
+    public function optionValues(): BelongsToMany
+    {
+        return $this->belongsToMany(OptionValue::class);
+    }
+
     public function scopeFiltered(Builder $query)
     {
         return app(Pipeline::class)
@@ -63,13 +75,6 @@ class Product extends Model
 
     public function scopeSorted(Builder $query)
     {
-        $query->when(request('sort'), function (Builder $q) {
-            $column = request()->str('sort');
-
-            if ($column->contains(['price', 'title'])) {
-                $direction = $column->contains('-') ? 'DESC' : 'ASC';
-                $q->orderBy((string) $column->remove('-'), $direction);
-            }
-        });
+        Sorter::run($query);
     }
 }
