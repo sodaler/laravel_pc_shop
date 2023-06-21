@@ -6,6 +6,7 @@ use App\Http\Controllers\Auth\SignInController;
 use App\Http\Controllers\Auth\SignUpController;
 use App\Http\Controllers\Auth\SocialAuthController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\CatalogController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -77,6 +78,14 @@ Route::controller(ProductController::class)->group(function () {
     Route::get('/product/{product:slug}', ProductController::class)
         ->name('product');
 });
+
+Route::controller(CartController::class)->prefix('cart')->group(function () {
+        Route::get('/', 'index')->name('cart');
+        Route::post('/{product}/add', 'add')->name('cart.add');
+        Route::post('/{item}/quantity', 'quantity')->name('cart.quantity');
+        Route::delete('/{item}/delete', 'delete')->name('cart.delete');
+        Route::delete('/truncate', 'truncate')->name('cart.truncate');
+    });
 
 Route::get('/', HomeController::class)->name('home');
 

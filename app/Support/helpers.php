@@ -4,6 +4,7 @@ use App\Filters\FilterManager;
 use App\Models\Category;
 use App\Sorters\Sorter;
 use App\Support\Flash\Flash;
+use App\Support\Managers\CartManager;
 
 if (!function_exists('flash')) {
     function flash(): Flash
@@ -41,5 +42,12 @@ if (!function_exists('filter_url')) {
             ...$params,
             'category' => $category
         ]);
+    }
+}
+
+if (!function_exists('cart')) {
+    function cart(): CartManager
+    {
+        return app(CartManager::class);
     }
 }

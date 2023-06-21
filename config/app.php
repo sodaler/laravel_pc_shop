@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\CartServiceProvider;
 use App\Providers\CatalogServiceProvider;
 use App\Providers\TestingServiceProvider;
 use App\Providers\ViewServiceProvider;
@@ -200,7 +201,8 @@ return [
         App\Providers\TelescopeServiceProvider::class,
         ViewServiceProvider::class,
         TestingServiceProvider::class,
-        CatalogServiceProvider::class
+        CatalogServiceProvider::class,
+        CartServiceProvider::class
 
     ],
 
