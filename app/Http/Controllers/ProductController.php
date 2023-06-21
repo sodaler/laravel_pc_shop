@@ -21,14 +21,9 @@ class ProductController extends Controller
             ->whereNot('id', $product->id)
             ->get();
 
-        $options = $product->optionValues->mapToGroups(function ($item) {
-            return [$item->option->title => $item];
-        });
-
-
         return view('product.show', [
             'product' => $product,
-            'options' => $options,
+            'options' => $product->optionValues->keyValues(),
             'viewed' => $viewedProducts,
             'also' => $also
         ]);

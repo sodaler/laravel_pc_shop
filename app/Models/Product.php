@@ -2,7 +2,8 @@
 
 namespace App\Models;
 
-use App\Facades\Sorter;
+use App\Jobs\ProductJsonProperties;
+use App\QueryBuilders\ProductQueryBuilder;
 use App\Support\Casts\PriceCast;
 use App\Traits\Models\HasSlug;
 use Illuminate\Contracts\Database\Query\Builder;
@@ -10,15 +11,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Pipeline\Pipeline;
 use Laravel\Scout\Searchable;
 
 class Product extends Model
 {
     use HasFactory;
     use HasSlug;
-    use Searchable;
-
 
     protected $fillable = [
         'title',
@@ -26,10 +24,14 @@ class Product extends Model
         'brand_id',
         'price',
         'thumbnail',
+        'sorting',
+        'text',
+        'json_properties'
     ];
 
     protected $casts = [
-      'price' => PriceCast::class
+        'price' => PriceCast::class,
+        'json_properties' => 'array'
     ];
 
     protected function thumbnailDir(): string
@@ -65,16 +67,17 @@ class Product extends Model
         return $this->belongsToMany(OptionValue::class);
     }
 
-    public function scopeFiltered(Builder $query)
+    public function newEloquentBuilder($query)
     {
-        return app(Pipeline::class)
-            ->send($query)
-            ->through(filters())
-            ->thenReturn();
+        return new ProductQueryBuilder($query);
     }
 
-    public function scopeSorted(Builder $query)
-    {
-        Sorter::run($query);
+    protected static function boot() {
+        parent::boot();
+
+        static::saved(function (Product $product) {
+            ProductJsonProperties::dispatch($product)
+                ->delay(now()->addSeconds(10));
+        });
     }
 }
