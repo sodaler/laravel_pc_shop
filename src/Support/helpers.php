@@ -1,7 +1,7 @@
 <?php
 
 use App\Filters\FilterManager;
-use App\Support\Managers\CartManager;
+use Domain\Cart\CartManager;
 use Domain\Catalog\Models\Category;
 use Domain\Catalog\Sorters\Sorter;
 use Support\Flash\Flash;

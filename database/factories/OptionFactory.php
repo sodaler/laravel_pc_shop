@@ -10,6 +10,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OptionFactory extends Factory
 {
+    protected $model = Option::class;
+
     public function definition(): array
     {
         return [

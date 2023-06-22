@@ -11,6 +11,8 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class OptionValueFactory extends Factory
 {
+    protected $model = OptionValue::class;
+
     public function definition(): array
     {
         return [

@@ -2,9 +2,8 @@
 
 namespace Support\ValueObjects;
 
-
-use App\Traits\Makeable;
 use InvalidArgumentException;
+use Support\Traits\Makeable;
 
 class Price
 {
