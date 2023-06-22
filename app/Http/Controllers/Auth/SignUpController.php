@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Contracts\RegisterNewUserContract;
-use App\DTOs\NewUserDTO;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\SignInFormRequest;
 use App\Http\Requests\SignUpFormRequest;
+use Domain\Auth\Contracts\RegisterNewUserContract;
+use Domain\Auth\DTOs\NewUserDTO;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

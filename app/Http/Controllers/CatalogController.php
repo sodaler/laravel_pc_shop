@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Category;
-use App\ViewModels\CatalogViewModel;
+use App\View\ViewModels\CatalogViewModel;
+use Domain\Catalog\Models\Category;
 
 class CatalogController extends Controller
 {

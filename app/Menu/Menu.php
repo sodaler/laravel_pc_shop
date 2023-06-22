@@ -2,10 +2,10 @@
 
 namespace App\Menu;
 
-use App\Traits\Makeable;
 use Countable;
 use Illuminate\Support\Collection;
 use IteratorAggregate;
+use Support\Traits\Makeable;
 use Traversable;
 
 class Menu implements IteratorAggregate, Countable

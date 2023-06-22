@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Brand;
-use App\Models\Category;
-use App\Models\Product;
-use App\ViewModels\BrandViewModel;
-use App\ViewModels\CategoryViewModel;
+use Domain\Catalog\ViewModels\BrandViewModel;
+use Domain\Catalog\ViewModels\CategoryViewModel;
+use Domain\Product\Models\Product;
 use Illuminate\Contracts\Foundation\Application;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Contracts\View\View;

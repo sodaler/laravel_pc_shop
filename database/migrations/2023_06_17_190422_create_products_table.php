@@ -30,6 +30,9 @@ return new class extends Migration {
 
             $table->index('brand_id', 'product_brand_idx');
 
+            $table->unsignedInteger('quantity')
+                ->default(0);
+
             $table->timestamps();
         });
 

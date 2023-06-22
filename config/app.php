@@ -1,7 +1,7 @@
 <?php
 
-use App\Providers\CartServiceProvider;
 use App\Providers\CatalogServiceProvider;
+use App\Providers\DomainServiceProvider;
 use App\Providers\TestingServiceProvider;
 use App\Providers\ViewServiceProvider;
 use Illuminate\Support\Facades\Facade;
@@ -199,10 +199,11 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\TelescopeServiceProvider::class,
+
         ViewServiceProvider::class,
         TestingServiceProvider::class,
+        DomainServiceProvider::class,
         CatalogServiceProvider::class,
-        CartServiceProvider::class
 
     ],
 

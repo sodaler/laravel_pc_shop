@@ -2,8 +2,7 @@
 
 namespace App\Menu;
 
-
-use App\Traits\Makeable;
+use Support\Traits\Makeable;
 
 class MenuItem
 {

@@ -2,7 +2,7 @@
 
 namespace App\Filters;
 
-use App\Models\Brand;
+use Domain\Catalog\Models\Brand;
 use Illuminate\Contracts\Database\Eloquent\Builder;
 
 class BrandFilter extends AbstractFilter
