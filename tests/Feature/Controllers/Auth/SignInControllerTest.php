@@ -3,8 +3,8 @@
 namespace Tests\Feature\Controllers\Auth;
 
 use App\Http\Controllers\Auth\SignInController;
-use App\Http\Requests\SignInFormRequest;
-use App\Models\User;
+use App\Http\Requests\Auth\SignInFormRequest;
+use Domain\Auth\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

@@ -4,8 +4,8 @@ namespace Tests\Feature\Controllers\Auth;
 
 use App\Http\Controllers\Auth\ResetPasswordController;
 use App\Http\Controllers\Auth\SignInController;
-use App\Models\User;
 use Database\Factories\UserFactory;
+use Domain\Auth\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Password;
 use Tests\TestCase;

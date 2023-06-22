@@ -3,11 +3,11 @@
 namespace Tests\Feature\Controllers\Auth;
 
 use App\Http\Controllers\Auth\SignUpController;
-use App\Http\Requests\SignUpFormRequest;
+use App\Http\Requests\Auth\SignUpFormRequest;
 use App\Listeners\SendEmailNewUserListener;
-use App\Models\User;
 use App\Notifications\NewUserNotification;
 use Database\Factories\UserFactory;
+use Domain\Auth\Models\User;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Event;

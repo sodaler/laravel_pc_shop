@@ -1,14 +1,12 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Worksome\RequestFactories\Concerns\HasFactory;
+use function auth;
 
-class SignInFormRequest extends FormRequest
+class ResetPasswordFormRequest extends FormRequest
 {
-    use HasFactory;
-
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -27,8 +25,9 @@ class SignInFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'email:dns'],
-            'password' => ['required'],
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|min:8|confirmed',
         ];
     }
 }

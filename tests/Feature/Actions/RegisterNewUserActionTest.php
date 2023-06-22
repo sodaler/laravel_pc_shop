@@ -2,8 +2,8 @@
 
 namespace Actions;
 
-use App\Contracts\RegisterNewUserContract;
-use App\DTOs\NewUserDTO;
+use Domain\Auth\Contracts\RegisterNewUserContract;
+use Domain\Auth\DTOs\NewUserDTO;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 

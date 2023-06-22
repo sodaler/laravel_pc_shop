@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\Services\Telegram;
 
-use App\Services\Telegram\TelegramBotApi;
 use Illuminate\Support\Facades\Http;
+use Services\Telegram\TelegramBotApi;
 use Tests\TestCase;
 
 class TelegramBotApiTest extends TestCase

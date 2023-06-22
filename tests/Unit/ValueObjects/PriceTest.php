@@ -2,8 +2,8 @@
 
 namespace Tests\Unit\ValueObjects;
 
-use App\Support\ValueObjects\Price;
 use InvalidArgumentException;
+use Support\ValueObjects\Price;
 use Tests\TestCase;
 
 class PriceTest extends TestCase

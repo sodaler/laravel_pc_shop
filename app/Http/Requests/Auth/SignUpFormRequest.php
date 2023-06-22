@@ -1,14 +1,19 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rules\Password;
+use Tests\RequestFactories\SignUpFormRequestFactory;
 use Worksome\RequestFactories\Concerns\HasFactory;
+use function auth;
+use function str;
 
 class SignUpFormRequest extends FormRequest
 {
     use HasFactory;
+
+    public static string $factory = SignUpFormRequestFactory::class;
 
     /**
      * Determine if the user is authorized to make this request.

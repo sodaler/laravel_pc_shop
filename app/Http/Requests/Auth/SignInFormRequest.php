@@ -1,11 +1,18 @@
 <?php
 
-namespace App\Http\Requests;
+namespace App\Http\Requests\Auth;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Tests\RequestFactories\SignInFormRequestFactory;
+use Worksome\RequestFactories\Concerns\HasFactory;
+use function auth;
 
-class ForgotPasswordFormRequest extends FormRequest
+class SignInFormRequest extends FormRequest
 {
+    use HasFactory;
+
+    public static string $factory = SignInFormRequestFactory::class;
+
     /**
      * Determine if the user is authorized to make this request.
      *
@@ -24,7 +31,8 @@ class ForgotPasswordFormRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'email:dns']
+            'email' => ['required', 'email:dns'],
+            'password' => ['required'],
         ];
     }
 }
