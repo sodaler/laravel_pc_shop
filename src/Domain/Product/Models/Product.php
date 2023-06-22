@@ -28,7 +28,8 @@ class Product extends Model
         'thumbnail',
         'sorting',
         'text',
-        'json_properties'
+        'json_properties',
+        'quantity',
     ];
 
     protected $casts = [
