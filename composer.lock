@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5f74b61a176b29ae75bef92eb044f4ce",
+    "content-hash": "bf168f7a7a5ccb835ded571aae998cd4",
     "packages": [
         {
             "name": "brick/math",
@@ -2417,80 +2417,6 @@
             "time": "2023-01-31T10:29:24+00:00"
         },
         {
-            "name": "lee-to/moonshine",
-            "version": "1.51.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/lee-to/moonshine.git",
-                "reference": "0a49a642731398e9ba7b18490316aaadd39b03c6"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/lee-to/moonshine/zipball/0a49a642731398e9ba7b18490316aaadd39b03c6",
-                "reference": "0a49a642731398e9ba7b18490316aaadd39b03c6",
-                "shasum": ""
-            },
-            "require": {
-                "ext-curl": "*",
-                "ext-json": "*",
-                "lee-to/laravel-package-command": "^0.9.1",
-                "php": "^8.0|^8.1|^8.2",
-                "rap2hpoutre/fast-excel": "^5.0"
-            },
-            "conflict": {
-                "laravel/framework": "<9.37.0"
-            },
-            "require-dev": {
-                "brianium/paratest": "^6.8",
-                "mockery/mockery": "^1.4.4",
-                "orchestra/testbench": "^4.0|^5.0|^6.0|^7.0|^8.0",
-                "phpstan/phpstan": "^1.4.7",
-                "phpunit/phpunit": "^9.5.8"
-            },
-            "suggest": {
-                "laravel/socialite": "Required to use the Socialite",
-                "unisharp/laravel-filemanager": "Required if you want tinymce file manager"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Leeto\\MoonShine\\Providers\\MoonShineServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Leeto\\MoonShine\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Danil Shutsky",
-                    "email": "info@cutcode.ru",
-                    "homepage": "https://cutcode.dev"
-                }
-            ],
-            "description": "Laravel dashboard",
-            "homepage": "https://moonshine.cutcode.dev",
-            "keywords": [
-                "admin",
-                "dashboard",
-                "laravel",
-                "moonshine"
-            ],
-            "support": {
-                "issues": "https://github.com/lee-to/moonshine/issues",
-                "source": "https://github.com/lee-to/moonshine"
-            },
-            "abandoned": "moonshine/moonshine",
-            "time": "2023-04-07T11:54:57+00:00"
-        },
-        {
             "name": "monolog/monolog",
             "version": "2.9.1",
             "source": {
@@ -2591,6 +2517,90 @@
                 }
             ],
             "time": "2023-02-06T13:44:46+00:00"
+        },
+        {
+            "name": "moonshine/moonshine",
+            "version": "1.60.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/moonshine-software/moonshine.git",
+                "reference": "5265d2f571c464ce77bda16756a3f90b0650e07d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/moonshine-software/moonshine/zipball/5265d2f571c464ce77bda16756a3f90b0650e07d",
+                "reference": "5265d2f571c464ce77bda16756a3f90b0650e07d",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "lee-to/laravel-package-command": "^0.9.1",
+                "php": "^8.0|^8.1|^8.2",
+                "rap2hpoutre/fast-excel": "^5.0"
+            },
+            "conflict": {
+                "laravel/framework": "<9.37.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.5",
+                "nunomaduro/larastan": "^2.6",
+                "orchestra/testbench": "^8.5",
+                "pestphp/pest": "^2.0",
+                "pestphp/pest-plugin-laravel": "^2.0",
+                "pestphp/pest-plugin-mock": "^2.0",
+                "rector/rector": "^0.16.0"
+            },
+            "suggest": {
+                "laravel/socialite": "Required to use the Socialite",
+                "unisharp/laravel-filemanager": "Required if you want tinymce file manager"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "MoonShine\\Providers\\MoonShineServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
+                "psr-4": {
+                    "MoonShine\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Danil Shutsky",
+                    "email": "info@cutcode.ru",
+                    "homepage": "https://cutcode.dev"
+                }
+            ],
+            "description": "Laravel administration panel",
+            "homepage": "https://moonshine.cutcode.dev",
+            "keywords": [
+                "admin",
+                "dashboard",
+                "laravel",
+                "moonshine"
+            ],
+            "support": {
+                "issues": "https://github.com/moonshine-software/moonshine/issues",
+                "source": "https://github.com/moonshine-software/moonshine"
+            },
+            "funding": [
+                {
+                    "url": "https://opencollective.com/moonshine",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2023-06-21T14:11:38+00:00"
         },
         {
             "name": "nesbot/carbon",
